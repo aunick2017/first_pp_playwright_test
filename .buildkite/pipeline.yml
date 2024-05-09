@@ -1,0 +1,11 @@
+steps:
+  - label: "Run Playwright Tests"
+    command:
+      - "npm install"
+      - "npx playwright test"
+    agents:
+      queue: "kaos-deployer"
+    plugins:
+      - docker#v3.8.0:
+          image: "mcr.microsoft.com/playwright:v1.12.3-focal"
+          always-pull: true
